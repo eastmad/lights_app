@@ -6,18 +6,21 @@ light2, light1, light3 = hue.lights
 
 # loop pretty colors
 
+light1.clear
+light2.clear
+light3.clear
+
 light1.red
 light2.red
 light3.red
 
-light1.on!
-light2.on!
-light3.on!
+sleep 0.1
 
 loop do
 
   sleep 0.01
 
+  light2.red
   light1.yellow
   light1.blip
 
@@ -36,5 +39,7 @@ loop do
   sleep 0.01
   
   light3.red
+  light2.yellow
+  light2.blip
 
 end

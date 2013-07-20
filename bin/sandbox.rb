@@ -1,11 +1,9 @@
 #!/usr/bin/env ruby
-require 'rubygems'
 require 'pp'
-require 'awesome_print'
 require 'pry'
-require 'philips_hue'
+require '../philips_hue'
 
-hue = PhilipsHue::Bridge.new("192.168.1.14")
+hue = PhilipsHue::Bridge.new(hue = PhilipsHue::Bridge.new(PhilipsHue::Config::API_URL,PhilipsHue::Config::APP_NAME))
 a, b, c = hue.lights
 
 # open an interactive session

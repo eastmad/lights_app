@@ -15,9 +15,12 @@ You need two things to connect with your Hue, a name for your app and the IP add
 * The app name can be anything you like. You must register your app with the Hue by running `PhilipsHue#register` and pressing the button on the bridge. You must do this again for every new app name you create. Example: `"my light app"`
 * Skip this step by running the [bin/register.rb](https://github.com/dmerrick/lights_app/blob/master/bin/register.rb) script.
 
+Create a config.rb by copying from config.rb.template, and add the app name and api.
+Then you can refer to them if you need to create a new bridge.
+
 For example:
 ```ruby
-  PhilipsHue::Bridge.register("my light app", "192.168.1.14")
+  PhilipsHue::Bridge.register(PhilipsHue::Config::API_URL,PhilipsHue::Config::APP_NAME)
 ```
 
 ### Getting the State of a Light
@@ -25,7 +28,7 @@ For example:
 There are many available status options in the `Light` class.
 
 ```ruby
-  hue = PhilipsHue::Bridge.new("my light app", "192.168.1.14")
+  hue = PhilipsHue::Bridge.register(PhilipsHue::Config::API_URL,PhilipsHue::Config::APP_NAME)
   light1, light2, light3 = hue.lights
   puts light1.state
   puts light1.colormode
@@ -40,7 +43,7 @@ There are many available status options in the `Light` class.
 To change the state of a light, simply modify the value of one of the state parameters. For example:
 
 ```ruby
-  light1.xy  = [0.6446, 0.3289]
+  light1.xy  = PhilipsHue::Config::RED
   light1.ct  = 200
   light1.hue = 25000
   # etc.
@@ -56,7 +59,7 @@ Some [helper methods](https://github.com/dmerrick/lights_app/blob/master/lib/phi
   light3.green
   light1.blip  # blink once
   light2.blink # blink repeatedly
-  light3.flash([0.6446, 0.3289]) # flash red
+  light3.flash(PhilipsHue::Config::RED) # flash red
 ```
 
 

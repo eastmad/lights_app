@@ -1,19 +1,40 @@
 module PhilipsHue::Helpers
 
+  RED = [0.6446, 0.3289]
+  GREEN = [0.4034, 0.5067]
+  BLUE = [0.1727, 0.0512]
+  YELLOW = [0.4447, 0.4918]
+
+  def clear
+    
+    low_state = {
+      :alert => "none",
+      :xy  => xy,
+      :on  => true,
+      :bri => 255,
+      :hue => 0,
+      :sat => 0,
+      :bri => 0,
+      :xy => [0.4, 0.35]
+    }
+    
+    set low_state
+  end
+
   def red
-    self.xy = [0.6446, 0.3289]
+    self.xy = RED
   end
 
   def green
-    self.xy = [0.4034, 0.5067]
+    self.xy = GREEN
   end
 
   def blue
-    self.xy = [0.1727, 0.0512]
+    self.xy = BLUE
   end
 
   def yellow
-    self.xy = [0.4447, 0.4918]
+    self.xy = YELLOW
   end
 
   # flash once
