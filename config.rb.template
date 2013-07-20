@@ -1,0 +1,7 @@
+#Take off the .template and put in your variables!
+module PhilipsHue
+  class Config
+      APP_NAME = "<appname>"
+      API_URL  = "<bridgeurl>"
+  end
+end

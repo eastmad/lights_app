@@ -1,4 +1,4 @@
 source :rubygems
 
 # include from gemspec
-gemspec
+gem 'httparty'

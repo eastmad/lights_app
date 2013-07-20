@@ -8,7 +8,7 @@
 
 require 'rubygems'
 require 'optparse'
-require 'philips_hue'
+require_relative '../lib/philips_hue'
 
 # set the defaults
 options = { :app_name => PhilipsHue::Bridge::DEFAULT_APP_NAME }

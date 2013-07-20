@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
 # example: flash.rb -l 3 -t 5 -c red -n 3
-
-require 'rubygems'
 require 'ostruct'
 require 'optparse'
-require 'philips_hue'
+require_relative '../lib/philips_hue'
 
 # set default values here
 colors = { "red"    => [0.6446, 0.3289],
@@ -18,8 +16,8 @@ options.delay    = 1
 options.repeat   = 1
 options.crazy    = false
 options.color    = colors["red"]
-options.app_name = PhilipsHue::Bridge::DEFAULT_APP_NAME
-options.api_url  = "192.168.1.14"
+options.app_name = "eastmadsapp"
+options.api_url  = "192.168.2.208"
 
 OptionParser.new do |opts|
   opts.banner = "Usage: #{opts.program_name} [options]"

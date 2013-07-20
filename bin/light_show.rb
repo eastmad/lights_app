@@ -1,29 +1,40 @@
 #!/usr/bin/env ruby
-require 'rubygems'
-require 'philips_hue'
+require_relative '../lib/philips_hue'
 
-hue = PhilipsHue::Bridge.new("192.168.1.14")
-light1, light2, light3 = hue.lights
+hue = PhilipsHue::Bridge.new(PhilipsHue::Config::API_URL,PhilipsHue::Config::APP_NAME)
+light2, light1, light3 = hue.lights
 
 # loop pretty colors
+
+light1.red
+light2.red
+light3.red
+
+light1.on!
+light2.on!
+light3.on!
+
 loop do
 
-  light1.red
-  light2.green
-  light3.blue
-
-  sleep 1
-
-  light1.blue
-  light2.blue
-  light3.yellow
-
-  sleep 1
+  sleep 0.01
 
   light1.yellow
-  light2.red
-  light3.red
+  light1.blip
 
-  sleep 1
+  sleep 0.01
+
+  light1.red
+  light2.yellow
+  light2.blip
+
+  sleep 0.01
+  
+  light2.red
+  light3.yellow
+  light3.blip
+  
+  sleep 0.01
+  
+  light3.red
 
 end

@@ -19,6 +19,7 @@ module PhilipsHue
 
     # returns overall system status
     def overview
+      puts "endpoint / key = #{@api_endpoint}/#{@key}"
       request_uri = "#{@api_endpoint}/#{@key}"
       HTTParty.get(request_uri)
     end
